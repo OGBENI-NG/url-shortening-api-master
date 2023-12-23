@@ -22,6 +22,8 @@ export default function App() {
   }
 
   const handleShortenLink = async (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+
     try {
       const response = await fetch('https://cleanuri.com/api/v1/shorten', {
         method: 'POST',

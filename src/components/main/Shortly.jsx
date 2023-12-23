@@ -28,10 +28,11 @@ export default function Shortly({longUrl, error, handleChange, handleShortenLink
       <div>
         {shortUrl && (
           <div>
-            <p>{longUrl}</p>
-            <p>{shortUrl}</p>
+            <p className='text-black'>{longUrl}</p>
+            <p className='text-black'>{shortUrl}</p>
           </div>
         )}
+        <p>{error}</p>
       </div>
     </Section>
   )
