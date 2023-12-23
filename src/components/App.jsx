@@ -23,7 +23,6 @@ export default function App() {
 
   const handleShortenLink = async (e) => {
     try {
-      e.preventDefault()
       const response = await fetch('https://cleanuri.com/api/v1/shorten', {
         method: 'POST',
         headers: {
