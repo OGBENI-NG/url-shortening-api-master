@@ -22,7 +22,7 @@ export default function Header({hamburger, logo, toggle, handleToggle}) {
         <div className='py-9 flex flex-col gap-6 lg:flex-row lg:p-0 lg:items-center
            lg:ml-auto lg:cursor-pointer'>
           <p className='lg:hover:text-dark-violet lg:cursor-pointer'>Login</p>
-          <Button className='py-3 lg:px-5 lg:py-2 '>Sign Up</Button>
+          <Button className='py-3 lg:px-5 lg:py-2 rounded-full'>Sign Up</Button>
         </div> 
       </nav>
       <div className='ml-auto w-8 lg:hidden' onClick={handleToggle}>

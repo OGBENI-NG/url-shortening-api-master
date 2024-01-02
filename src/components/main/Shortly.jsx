@@ -22,21 +22,32 @@ export default function Shortly({longUrl, error, handleChange, handleShortenLink
           className="w-full rounded-[10px] py-4 text-lg"
           onClick={handleShortenLink}
         >
-          Shorten It
+          Shorten It!
         </Button>
       </form>
-      <div>
-        <div>
-          {shortUrl.map((short, index) => (
-            <p key={index} className='text-black'>{short}</p>
+      <div className='mt-6'>
+        <div className='text-lg'>
+          {longUrlArray.map((long, i) => (
+            <div key={i} className='bg-white mb-4 py-4'>
+              <p className='pb-4 border-b-[1px] border-grayish-violet'>
+                <a className='px-4 text-very-dark-violet' href={long} target='_blank'>{long}</a>
+              </p>
+              {shortUrl[i] && (
+                <p className='px-4 pt-4'>
+                  <a 
+                    href={shortUrl[i]} 
+                    target='_blank' 
+                    className='text-cyan py-4'>
+                    {shortUrl[i]}
+                  </a>
+                  <Button className='block w-full rounded-lg py-2 mt-4'>Copy</Button>
+                </p>
+              )}
+            </div>
           ))}
         </div>
-        <div>
-         {longUrlArray.map((long, i) => (
-          <p key={i}>{long}</p>
-         ))}
-        </div>
       </div>
+
     </Section>
   )
 }

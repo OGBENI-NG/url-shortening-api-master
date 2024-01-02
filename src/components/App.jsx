@@ -66,8 +66,8 @@ export default function App() {
           },
         }
       );
-      setShortUrl((prevShortUrls) => [...prevShortUrls, response.data.id]);
       setLongUrlArray((prevLongUrlArr) => [...prevLongUrlArr, longUrl])
+      setShortUrl((prevShortUrls) => [...prevShortUrls, response.data.id]);
       setError('');
       setLongUrl('')
     } catch (error) {

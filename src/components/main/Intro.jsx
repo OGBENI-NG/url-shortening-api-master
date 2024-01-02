@@ -17,7 +17,7 @@ export default function Intro({illustrationWorking}) {
           Build your  brand’s recognition and get detailed insights 
           on how your links are performing.
         </p>
-        <Button className="mt-7 py-3 px-7 text-lg lg:px-8 lg:py-2">
+        <Button className="mt-7 py-3 px-7 text-lg lg:px-8 lg:py-2 rounded-full">
           Get Started
         </Button>
       </div>
