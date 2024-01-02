@@ -2,7 +2,7 @@ import React from 'react'
 import Intro from './Intro'
 import Shortly from './Shortly'
 
-export default function Main({illustrationWorking, error, longUrl, handleChange, shortUrl, handleShortenLink}) {
+export default function Main({illustrationWorking, error, longUrl, handleChange, shortUrl, handleShortenLink, longUrlArray}) {
   return (
     <main>
       <Intro
@@ -14,6 +14,7 @@ export default function Main({illustrationWorking, error, longUrl, handleChange,
         shortUrl={shortUrl}
         handleShortenLink={handleShortenLink}
         error={error}
+        longUrlArray={longUrlArray}
       />
     </main>
   )
