@@ -3,11 +3,19 @@ import Header from './Header'
 import logo from '../asset/images/logo.svg'
 import hamburger from '../asset/images/hamburger.svg'
 import illustrationWorking from '../asset/images/illustration-working.svg'
+import bgBoostMb from '../asset/images/bg-boost-mobile.svg'
+import bgBoostDsk from '../asset/images/bg-boost-desktop.svg'
+import bgShortenMb from '../asset/images/bg-shorten-mobile.svg'
+import bgShortenDsk from '../asset/images/bg-shorten-desktop.svg'
+
+
 import Intro from './main/Intro'
 import axios from 'axios'
 import Shortly from './main/Shortly'
 import brandData from '../../data'
 import Testimonies from './main/Testimonies'
+import IntroBase from './main/IntroBase'
+import Footer from './Footer'
 
 export default function App() {
   const [toggle, setToggle] = useState(false)
@@ -17,8 +25,11 @@ export default function App() {
   const [error, setError] = useState('')
   const [copyShortUrl, setCopyShortUrl] = useState(null)
   const BITLY_ACCESS_TOKEN = import.meta.env.VITE_BITLY_API_KEY
-  
 
+  const testimoniesData = brandData.slice(0, 3)
+  const footerData = brandData.filter(data => data.type === 'footer')
+  const socialIcons = brandData.filter(icon => icon.type === 'social-icon')
+  
 
   //storing the value of shortUrl to localStorage 
   function storeShortUrls(){
@@ -118,9 +129,20 @@ export default function App() {
         longUrlArray={longUrlArray}
         copyShortUrl={copyShortUrl}
         copyShortUrls={copyShortUrls}
+        bgShortenDsk={bgShortenDsk}
+        bgShortenMb={bgShortenMb}
       />
       <Testimonies
-        brandData={brandData}
+        testimoniesData={testimoniesData}
+      />
+      <IntroBase
+        bgBoostDsk={bgBoostDsk}
+        bgBoostMb={bgBoostMb}
+      />
+      <Footer 
+        logo={logo}
+        footerData={footerData}
+        socialIcons={socialIcons}
       />
     </div>
   )
