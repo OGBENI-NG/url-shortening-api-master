@@ -15,6 +15,8 @@ export default {
         'grayish-violet': 'hsl(257, 7%, 63%)',
         'very-dark-blue': 'hsl(255, 11%, 22%)',
         'very-dark-violet': 'hsl(260, 8%, 14%)',
+        hoverColor: 'hsla(180, 65%, 69%, 0.811)',
+        overLay: 'hsla(258, 27%, 26%, 0.296)'
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],

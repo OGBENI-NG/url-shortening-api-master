@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect, useRef} from 'react'
 import Header from './Header'
 import logo from '../asset/images/logo.svg'
 import hamburger from '../asset/images/hamburger.svg'
@@ -62,7 +62,26 @@ export default function App() {
     localStorage.setItem('longUrlArray', JSON.stringify(longUrlArray))
   }, [shortUrl, longUrlArray])
 
-  
+  const navBarRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navBarRef.current && !navBarRef.current.contains(event.target)) {
+        // Clicked outside the navBar
+        setToggle(false);
+      }
+    };
+
+    // Attach the event listener
+    document.addEventListener('click', handleClickOutside);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []); // Empty dependency array means this effect runs once on mount
+
+
   const handleToggle = () => {
     setToggle(prevToggle => !prevToggle)
   }
@@ -74,16 +93,19 @@ export default function App() {
   }
 
   const handleShortenLink = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
   
+    // Check if input is empty
     if (!longUrl.trim()) {
-      setError('Please add a link.')
-      return
+      setError('Please add a link.');
+      return;
     }
   
+    // Check if input starts with 'https://'
     if (!longUrl.startsWith('https://')) {
-      setError('Please add a link starting with "https://".')
-      return
+
+      setError('start with "https://".');
+      return;
     }
   
     try {
@@ -98,24 +120,27 @@ export default function App() {
             'Content-Type': 'application/json',
           },
         }
-      )
-      setLongUrlArray((prevLongUrlArr) => [...prevLongUrlArr, longUrl])
-      setShortUrl((prevShortUrls) => [...prevShortUrls, response.data.id])
-      setError('')
-      setLongUrl('')
+      );
+      
+      setLongUrlArray((prevLongUrlArr) => [...prevLongUrlArr, longUrl]);
+      setShortUrl((prevShortUrls) => [...prevShortUrls, response.data.id]);
+      setError('');
+      setLongUrl('');
     } catch (error) {
-      console.error('Error:', error.message)
-      setError('Failed to fetch. Please try again.')
+      console.error('Error:', error.message);
+      setError('No More shortly Token.');
     }
-  }
+  };
+  
   
   return (
-    <div className={`font-poppins`}>
+    <div className={`font-poppins scroll-smooth ${toggle && "overflow-x-hidden h-screen"}`}>
       <Header 
         logo={logo}
         hamburger={hamburger}
         handleToggle={handleToggle}
         toggle={toggle}
+        navBarRef={navBarRef}
       />
       <Intro 
         illustrationWorking={illustrationWorking}
