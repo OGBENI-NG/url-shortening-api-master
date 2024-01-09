@@ -56,7 +56,7 @@ export default function App() {
     }
   }
 
-
+  // use localStorage to set the value of long and short urls
   useEffect(() => {
     localStorage.setItem('shortUrl', JSON.stringify(shortUrl))
     localStorage.setItem('longUrlArray', JSON.stringify(longUrlArray))
@@ -81,17 +81,17 @@ export default function App() {
     };
   }, []); // Empty dependency array means this effect runs once on mount
 
-
+  // toggle navbar
   const handleToggle = () => {
     setToggle(prevToggle => !prevToggle)
   }
-
 
   const handleChange = (e) => {
     const value = e.target.value
     setLongUrl(value)
   }
 
+  //function to get short url from bitly api
   const handleShortenLink = async (e) => {
     e.preventDefault();
   
