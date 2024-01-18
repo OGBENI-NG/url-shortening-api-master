@@ -11,7 +11,7 @@ export default function Header({hamburger, logo, toggle, handleToggle, navBarRef
       <div className=''>
         <nav 
           className={`
-            ${toggle ? "" :`sm:hidden lg:flex lg:items-center lg:top-[2.35rem] left-[14rem] 
+            ${toggle ? "overflow-x-hidden" :`sm:hidden lg:flex lg:items-center lg:top-[2.35rem] left-[14rem] 
               lg:w-[72%] xl:w-[69%] xxl:w-[63.4%] xl:left-[18rem] xxl:left-[22rem] 
               xl:top-[2.2rem] xxl:top-[3.3rem]`} 
               absolute top-[5.7rem] md:top-[7.5rem] right-0 left-0 text-white text-center 
