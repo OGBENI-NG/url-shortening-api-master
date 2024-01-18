@@ -134,7 +134,7 @@ export default function App() {
   
   
   return (
-    <div className={`font-poppins scroll-smooth ${toggle && "overflow-x-hidden h-screen"}`}>
+    <div className={`font-poppins scroll-smooth ${toggle && "overflow-hidden h-screen"}`}>
       <Header 
         logo={logo}
         hamburger={hamburger}

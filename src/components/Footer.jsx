@@ -11,14 +11,13 @@ export default function Footer({footerData, socialIcons}) {
             <h5 className='text-lightGray font-medium text-xl py-4
               lg:pt-0 lg:pb-7 md:text-[1.3rem] lg:text-2xl xxl:text-4xl: lg:hover:text-cyan lg:cursor-pointer'
             >
-                {data.name}
+              {data.name}
             </h5>
             <div className='xl:text-base lg:text-[22px] md:text-[20px] xxl:text-xl md:flex md:flex-col md:gap-4
             '>
-              <p className='lg:hover:text-cyan lg:cursor-pointer'>{data.list[0]}</p>
-              <p className='lg:hover:text-cyan lg:cursor-pointer'>{data.list[1]}</p>
-              <p className='lg:hover:text-cyan lg:cursor-pointer'>{data.list[2]}</p>
-              <p className='lg:hover:text-cyan lg:cursor-pointer'>{data.list[3]}</p>
+              {data.list.map(list => (
+                <p key={list} className='lg:hover:text-cyan lg:cursor-pointer'>{list}</p>
+              ))}
             </div>
           </div>
         ))}
@@ -28,7 +27,6 @@ export default function Footer({footerData, socialIcons}) {
           <div key={i} className=''>
             <img className='sm:w-9 md:w-14 lg:w-12 xl:w-9 xxl:w-11' src={icon.icon} alt={icon.alt} />
           </div>
-         
         ))}
       </section>
     </footer>
