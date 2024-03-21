@@ -1,4 +1,5 @@
 # Frontend Mentor - Shortly URL shortening API Challenge
+live: https://rad-panda-9b4e17.netlify.app/
 
 ![Design preview for the Shortly URL shortening API coding challenge](./design/desktop-preview.jpg)
 
